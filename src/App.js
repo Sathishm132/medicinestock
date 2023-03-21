@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import Addstock from './components/Addstock';
+import Bill from './components/Bill';
+import Stockprovider from './Context/Stockprovider';
 
-import AddUser from './components/Users/AddUser';
-import UsersList from './components/Users/UsersList';
+
 
 function App() {
-  const [usersList, setUsersList] = useState([]);
-
-  const addUserHandler = (uName, uAge) => {
-    setUsersList((prevUsersList) => {
-      return [
-        ...prevUsersList,
-        { name: uName, age: uAge, id: Math.random().toString() },
-      ];
-    });
-  };
 
   return (
     <div>
-      <AddUser onAddUser={addUserHandler} />
-      <UsersList users={usersList} />
+      <Stockprovider> <Addstock/><br/>
+      <Bill/></Stockprovider>
+    
     </div>
   );
 }
